@@ -32,6 +32,22 @@ module Api::Services
         service.call
         login_ticket.reload.wont_be :active?
       end
+
+     it "generates a ticket granting ticket after a successful auth attempt" do
+        lt = login_ticket.name
+
+        service = Login.new(
+          username: user.email,
+          password: "password",
+          login_ticket_name: lt,
+          service: "https://app.example.com"
+        )
+
+        service.call
+        service.ticket_granting_ticket.must_be_kind_of TicketGrantingTicket
+      end
+ 
+
     end
   
   end
