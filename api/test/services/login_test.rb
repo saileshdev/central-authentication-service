@@ -46,7 +46,20 @@ module Api::Services
         service.call
         service.ticket_granting_ticket.must_be_kind_of TicketGrantingTicket
       end
- 
+
+    it "generates a service ticket after a successful auth attempt" do
+        lt = login_ticket.name
+
+        service = Login.new(
+          username: user.email,
+          password: "password",
+          login_ticket_name: lt,
+          service: "https://app.example.com"
+        )
+
+        service.call
+        service.service_ticket.must_be_kind_of ServiceTicket
+      end 
 
     end
   
