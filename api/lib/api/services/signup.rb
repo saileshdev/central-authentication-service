@@ -9,7 +9,9 @@ module Api::Services
     def call
       @user = User.new email: @email
       @user.encrypted_password = Digest::SHA1.hexdigest @password
-      @user.save
+      if @user.save
+        @status = :ok
+      end
     end
 
   end
