@@ -28,6 +28,7 @@ module Api::Services
     def login
       if valid_auth?
         generate_ticket_granting_ticket
+        generate_service_ticket
       end
       
       expire_login_ticket
