@@ -4,3 +4,5 @@ require "bundler"
 Bundler.require
 require 'api'
 
+DatabaseCleaner.startegy = :truncation
+
