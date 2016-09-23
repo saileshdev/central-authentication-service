@@ -6,5 +6,8 @@ module Api::Services
       @password = password
     end 
   
+    def call
+    end
+
   end
 end
