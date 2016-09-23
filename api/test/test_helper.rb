@@ -19,4 +19,11 @@ class MiniTest::Spec
   after :each do
     DatabaseCleaner.clean
   end
+
+  def spawn_user email: "me@example.com", password: "password"
+    service = Api::Services::Signup.new email: email, password: password
+    service.call
+    service.user
+  end
+
 end
