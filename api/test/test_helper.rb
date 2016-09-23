@@ -26,4 +26,10 @@ class MiniTest::Spec
     service.user
   end
 
+  def spawn_login_ticket
+    service = Api::Services::Login.new
+    service.call
+    service.ticket
+  end
+
 end
