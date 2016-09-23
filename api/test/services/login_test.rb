@@ -22,6 +22,17 @@ module Api::Services
 
       service.status.must_equal :ok
     end
+
+    it "provides a service ticket based off a ticket granting cookie auth attempt" do
+      ticket_granting_ticket = spawn_ticket_granting_ticket user: user
+      service = Login.new(
+        ticket_granting_ticket_name: ticket_granting_ticket.name,
+        service: "https://app.example.com"
+      )
+      service.call
+
+      service.service_ticket.must_be_kind_of ServiceTicket
+    end
     
     describe "given an existing login ticket" do
       attr_reader :login_ticket
