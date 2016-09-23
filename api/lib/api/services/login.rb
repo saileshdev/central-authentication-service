@@ -11,6 +11,14 @@ module Api::Services
     end
     
     def call
+      if @username.nil?
+         generate_login_ticket
+      else
+         login
+      end
+    end
+    
+    def generate_login_ticket
       @ticket = LoginTicket.new name: "LT-#{Digest::SHA1.hexdigest(Time.new.to_s)}"
       @ticket.save
     end
