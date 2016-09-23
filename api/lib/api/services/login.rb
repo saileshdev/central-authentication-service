@@ -1,6 +1,6 @@
 module Api::Services
   class Login
-    attr_reader :ticket
+    attr_reader :ticket, :ticket_granting_ticket
     
     def initialize username: nil, password: nil, login_ticket_name: nil, service: nil, ticket_granting_ticket_name: nil
       @username = username
