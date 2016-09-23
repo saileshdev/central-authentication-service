@@ -16,7 +16,6 @@ module Api::Services
     end
 
     it "saves the user" do
-      skip
       service.user.id.wont_be_nil
     end
 
