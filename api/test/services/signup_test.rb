@@ -20,7 +20,6 @@ module Api::Services
     end
 
     it "has a created_at timestamp" do
-      skip
       service.user.created_at.must_be :<, Time.now
     end
 
