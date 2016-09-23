@@ -47,5 +47,8 @@ module Api::Services
        @ticket_granting_ticket.save
     end
 
+    def generate_service_ticket
+    end    
+
   end
 end
