@@ -26,7 +26,9 @@ module Api::Services
     end
     
     def login
-      if !valid_auth?
+      if valid_auth?
+        generate_ticket_granting_ticket
+      else
         expire_login_ticket
       end
     end
@@ -37,6 +39,9 @@ module Api::Services
 
     def expire_login_ticket
       LoginTicket.where(name: @login_ticket_name).first.update_attribute(:active, false)
+    end
+    
+    def generate_ticket_granting_ticket
     end
 
   end
