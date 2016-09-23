@@ -36,6 +36,7 @@ module Api::Services
     end
 
     def expire_login_ticket
+      LoginTicket.where(name: @login_ticket_name).first.update_attribute(:active, false)
     end
 
   end
