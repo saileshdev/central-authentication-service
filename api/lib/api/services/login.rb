@@ -35,5 +35,8 @@ module Api::Services
        @user = User.where(email: @username, encrypted_password: Digest::SHA1.hexdigest(@password)).first
     end
 
+    def expire_login_ticket
+    end
+
   end
 end
