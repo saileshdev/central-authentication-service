@@ -11,6 +11,17 @@ module Api::Services
 
       service.ticket.must_be_kind_of LoginTicket
     end
+
+    it "logs a user in based off an existing session" do
+      ticket_granting_ticket = spawn_ticket_granting_ticket user: user
+      service = Login.new(
+        ticket_granting_ticket_name: ticket_granting_ticket.name,
+        service: "https://app.example.com"
+      )
+      service.call
+
+      service.status.must_equal :ok
+    end
     
     describe "given an existing login ticket" do
       attr_reader :login_ticket
