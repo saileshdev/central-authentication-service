@@ -26,7 +26,11 @@ module Api::Services
     end
     
     def login
+      valid_auth?
     end
- 
+  
+    def valid_auth?
+    end
+
   end
 end
