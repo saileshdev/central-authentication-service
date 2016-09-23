@@ -7,3 +7,5 @@ def change
       t.timestamps
   end
 end
+
+end
