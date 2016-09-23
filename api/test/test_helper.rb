@@ -4,6 +4,11 @@ require "bundler"
 Bundler.require
 require 'api'
 
+ActiveRecord::Base.establish_connection(
+  adapter: "sqlite3",
+  database: "db/test.sqlite3"
+)
+
 DatabaseCleaner.strategy = :truncation
 
 class MiniTest::Spec
