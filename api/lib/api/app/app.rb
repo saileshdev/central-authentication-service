@@ -8,4 +8,14 @@ class App < Sinatra::Base
     haml :signup
   end
 
+  post "/users" do
+    service = Api::Services::Signup.new email: params[:user][:email], password: params[:user][:password]
+    service.call
+
+    if service.status == :ok
+      redirect "/"
+    end
+  end
+
+
 end
