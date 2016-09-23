@@ -1,7 +1,8 @@
 class App < Sinatra::Base
   
   get "/" do
-    "Hello World!"
+    @users = User.all
+    haml :index 
   end
  
   get "/users/new" do
