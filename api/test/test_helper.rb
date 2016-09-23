@@ -4,7 +4,7 @@ require "bundler"
 Bundler.require
 require 'api'
 
-DatabaseCleaner.startegy = :truncation
+DatabaseCleaner.strategy = :truncation
 
 class MiniTest::Spec
   before :each do
