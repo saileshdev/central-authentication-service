@@ -48,6 +48,7 @@ module Api::Services
       end
 
     it "generates a service ticket after a successful auth attempt" do
+        skip
         lt = login_ticket.name
 
         service = Login.new(

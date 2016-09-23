@@ -28,9 +28,9 @@ module Api::Services
     def login
       if valid_auth?
         generate_ticket_granting_ticket
-      else
-        expire_login_ticket
       end
+      
+      expire_login_ticket
     end
   
     def valid_auth?
