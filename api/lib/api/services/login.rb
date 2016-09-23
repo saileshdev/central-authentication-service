@@ -26,10 +26,13 @@ module Api::Services
     end
     
     def login
-      valid_auth?
+      if !valid_auth?
+        expire_login_ticket
+      end
     end
   
     def valid_auth?
+       @user = User.where(email: @username, encrypted_password: Digest::SHA1.hexdigest(@password)).first
     end
 
   end
