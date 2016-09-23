@@ -42,6 +42,8 @@ module Api::Services
     end
     
     def generate_ticket_granting_ticket
+      @ticket_granting_ticket = TicketGrantingTicket.new name: "TGT-" + Digest::SHA1.hexdigest(Time.new.to_s)
+       @ticket_granting_ticket.save
     end
 
   end
