@@ -24,7 +24,6 @@ module Api::Services
     end
 
     it "signs a user up" do
-      skip
       service.status.must_equal :ok
     end
   
