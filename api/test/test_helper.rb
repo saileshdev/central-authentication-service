@@ -43,5 +43,8 @@ class MiniTest::Spec
     st.save
     st
   end
+  
+  def perform_login user: nil, service: nil
+  end
 
 end
