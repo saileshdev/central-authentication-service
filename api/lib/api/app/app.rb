@@ -59,6 +59,8 @@ class App < Sinatra::Base
   end
 
   def ticket_granting_ticket?
+    !request.cookies["CASTGC"].nil? &&
+    TicketGrantingTicket.where(name: request.cookies["CASTGC"]).first
   end
 
 end
