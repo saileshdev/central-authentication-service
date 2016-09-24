@@ -6,11 +6,15 @@ class App < Sinatra::Base
   end
 
   get "/login" do
-    service = Api::Services::Login.new
-    service.call
-    @service = params[:service]
-    @lt = service.ticket.name
-    haml :login
+    if ticket_granting_ticket?
+      #placeholder
+    else
+      service = Api::Services::Login.new
+      service.call
+      @service = params[:service]
+      @lt = service.ticket.name
+      haml :login
+    end
   end
 
   post "/login" do
