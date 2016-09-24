@@ -7,7 +7,11 @@ class App < Sinatra::Base
 
   get "/login" do
     if ticket_granting_ticket?
-      #placeholder
+      service = Api::Services::Login.new ticket_granting_ticket_name: request.cookies["CASTGC"]
+      service.call
+      if params[:service]
+        redirect params[:service] + "?ticket=#{service.service_ticket.name}", 303
+      end 
     else
       service = Api::Services::Login.new
       service.call
