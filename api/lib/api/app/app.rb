@@ -6,6 +6,7 @@ class App < Sinatra::Base
   end
 
   get "/login" do
+    haml :login
   end
  
   get "/users/new" do
