@@ -57,6 +57,7 @@ class App < Sinatra::Base
 
   get "/p3/serviceValidate" do
   content_type :xml
+  builder :serviceValidate
   end
 
   private
