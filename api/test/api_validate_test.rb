@@ -13,4 +13,9 @@ describe App do
     perform_login user: user, service: service
   end
 
+  it "validates a service ticket for a service" do
+    get "/p3/serviceValidate", service: service, ticket: @service_ticket
+    last_response.status.must_equal 200
+  end
+
 end
