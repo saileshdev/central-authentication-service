@@ -20,7 +20,12 @@ class App < Sinatra::Base
         password: params[:password],
         login_ticket_name: params[:lt]
        )
-       service.call 
+       service.call
+
+      if service.status == :ok
+        response.set_cookie "CASTGC", service.ticket_granting_ticket.name
+      end
+ 
     else
       status 422
     end
