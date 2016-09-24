@@ -32,4 +32,10 @@ class MiniTest::Spec
     service.ticket
   end
 
+  def spawn_ticket_granting_ticket user: nil
+    tgt = TicketGrantingTicket.new name: "TGT-random", user: user
+    tgt.save
+    tgt
+  end
+
 end
