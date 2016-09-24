@@ -11,7 +11,11 @@ module Api::Services
       before do
       validate_service.call
       end  
-      
+     
+      it "validates a service ticket against a service" do
+      validate_service.status.must_equal :ok
+      end
+ 
     end
 end
 
