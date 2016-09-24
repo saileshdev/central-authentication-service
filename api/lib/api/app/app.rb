@@ -55,6 +55,9 @@ class App < Sinatra::Base
     end
   end
 
+  get "/p3/serviceValidate" do
+  end
+
   private
 
   def all_inputs_present?
