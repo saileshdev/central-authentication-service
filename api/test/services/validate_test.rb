@@ -15,6 +15,10 @@ module Api::Services
       it "validates a service ticket against a service" do
         validate_service.status.must_equal :ok
       end
+
+      it "returns the user's info on successful validation" do
+        validate_service.user.must_be_kind_of User
+      end
  
     end
 end
