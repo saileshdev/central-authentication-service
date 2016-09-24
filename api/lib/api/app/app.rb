@@ -33,6 +33,7 @@ class App < Sinatra::Base
   private
 
   def all_inputs_present?
+    params[:username] && params[:password] && params[:lt]
   end
 
 end
