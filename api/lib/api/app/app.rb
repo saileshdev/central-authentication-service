@@ -26,7 +26,8 @@ class App < Sinatra::Base
       service = Api::Services::Login.new(
         username: params[:username],
         password: params[:password],
-        login_ticket_name: params[:lt]
+        login_ticket_name: params[:lt],
+        service: params[:service]
        )
        service.call
 
