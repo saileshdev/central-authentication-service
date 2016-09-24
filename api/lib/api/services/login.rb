@@ -35,7 +35,7 @@ module Api::Services
     end
   
     def valid_auth?
-      if ticket_granting_ticket_name.nil?
+      if @ticket_granting_ticket_name.nil?
         @user = User.where(email: @username, encrypted_password: Digest::SHA1.hexdigest(@password)).first
       else
         ticket = TicketGrantingTicket.where(name: @ticket_granting_ticket_name).first
