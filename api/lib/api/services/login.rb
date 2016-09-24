@@ -59,7 +59,7 @@ module Api::Services
     end
 
     def generate_service_ticket
-     @service_ticket = ServiceTicket.new name: "ST-" + Digest::SHA1.hexdigest(Time.new.to_s)
+     @service_ticket = ServiceTicket.new name: "ST-" + Digest::SHA1.hexdigest(Time.new.to_s), service: @service
       @service_ticket.save
     end    
 
