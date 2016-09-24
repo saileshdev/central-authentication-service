@@ -7,6 +7,11 @@ module Api::Services
     end
 
     def call
+      if service_found?
+      end 
+    end
+
+    def service_found?
     end
 
   end
