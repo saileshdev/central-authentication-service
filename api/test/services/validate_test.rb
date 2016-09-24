@@ -9,11 +9,11 @@ module Api::Services
       let(:validate_service) { Validate.new(service, service_ticket.name) }
       
       before do
-      validate_service.call
+        validate_service.call
       end  
      
       it "validates a service ticket against a service" do
-      validate_service.status.must_equal :ok
+        validate_service.status.must_equal :ok
       end
  
     end
