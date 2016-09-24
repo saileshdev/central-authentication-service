@@ -12,6 +12,9 @@ class App < Sinatra::Base
     @lt = service.ticket.name
     haml :login
   end
+
+  post "/login" do
+  end
  
   get "/users/new" do
     haml :signup
