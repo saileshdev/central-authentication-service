@@ -29,6 +29,8 @@ module Api::Services
       if valid_auth?
         generate_ticket_granting_ticket
         generate_service_ticket
+
+        @status = :ok
       end
       
       expire_login_ticket
