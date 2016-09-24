@@ -58,4 +58,7 @@ class App < Sinatra::Base
       params[:username] != "" && params[:password] != "" && params[:lt] != ""
   end
 
+  def ticket_granting_ticket?
+  end
+
 end
