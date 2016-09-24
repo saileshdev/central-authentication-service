@@ -30,5 +30,7 @@ class App < Sinatra::Base
     end
   end
 
+  def all_inputs_present?
+  end
 
 end
