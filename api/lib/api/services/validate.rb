@@ -14,6 +14,7 @@ module Api::Services
     private
 
     def service_found?
+      @service_ticket = ServiceTicket.where(name: @service_ticket_name, service: @service).first
     end
 
   end
