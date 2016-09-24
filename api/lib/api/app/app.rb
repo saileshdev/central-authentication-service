@@ -30,6 +30,8 @@ class App < Sinatra::Base
     end
   end
 
+  private
+
   def all_inputs_present?
   end
 
