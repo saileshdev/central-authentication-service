@@ -4,6 +4,9 @@ class App < Sinatra::Base
     @users = User.all
     haml :index 
   end
+
+  get "/login" do
+  end
  
   get "/users/new" do
     haml :signup
