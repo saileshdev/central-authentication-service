@@ -8,6 +8,7 @@ class App < Sinatra::Base
   get "/login" do
     service = Api::Services::Login.new
     service.call
+    @service = params[:service]
     @lt = service.ticket.name
     haml :login
   end
