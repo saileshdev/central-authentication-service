@@ -14,7 +14,16 @@ class App < Sinatra::Base
   end
 
   post "/login" do
-    status 422 unless all_inputs_present?
+    if all_inputs_present? 
+      service = Api::Services::Login.new(
+        username: params[:username],
+        password: params[:password],
+        login_ticket_name: params[:lt]
+       )
+       service.call 
+    else
+      status 422
+    end
   end
  
   get "/users/new" do
