@@ -8,6 +8,7 @@ module Api::Services
 
     def call
       if service_found?
+        @status = :ok
       end 
     end
 
