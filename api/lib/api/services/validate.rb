@@ -9,6 +9,8 @@ module Api::Services
     def call
       if service_found?
         @status = :ok
+        #use the active record relationship to fetch the user
+        @user = @service_ticket.user
       end 
     end
 
