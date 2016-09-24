@@ -14,6 +14,7 @@ class App < Sinatra::Base
   end
 
   post "/login" do
+    status 422 unless all_inputs_present?
   end
  
   get "/users/new" do
