@@ -33,7 +33,7 @@ module Api::Services
         @status = :ok
       end
       
-      expire_login_ticket
+      expire_login_ticket if @login_ticket_name
     end
   
     def valid_auth?
