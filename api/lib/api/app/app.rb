@@ -24,6 +24,7 @@ class App < Sinatra::Base
 
       if service.status == :ok
         response.set_cookie "CASTGC", service.ticket_granting_ticket.name
+        redirect params[:service] + "?ticket=#{service.service_ticket.name}"
       end
  
     else
