@@ -40,9 +40,9 @@ module Api::Services
       if @ticket_granting_ticket_name.nil?
         @user = User.where(email: @username, encrypted_password: Digest::SHA1.hexdigest(@password)).first
       else
-        ticket = TicketGrantingTicket.where(name: @ticket_granting_ticket_name).first
-        if ticket
-          @user = ticket.user
+        @ticket_granting_ticket = TicketGrantingTicket.where(name: @ticket_granting_ticket_name).first
+        if @ticket_granting_ticket
+          @user = @ticket_granting_ticket.user
         else
           return false
         end
