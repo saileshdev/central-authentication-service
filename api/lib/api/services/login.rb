@@ -11,7 +11,7 @@ module Api::Services
     end
     
     def call
-      if @username.nil?
+      if @username.nil? && @ticket_granting_ticket_name.nil?
          generate_login_ticket
       else
          login
