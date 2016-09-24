@@ -11,6 +11,8 @@ module Api::Services
       end 
     end
 
+    private
+
     def service_found?
     end
 
