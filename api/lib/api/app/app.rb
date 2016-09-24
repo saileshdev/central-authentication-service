@@ -56,7 +56,6 @@ class App < Sinatra::Base
   end
 
   get "/p3/serviceValidate" do
-    content_type :xml
     service = Api::Services::Validate.new(params[:service], params[:ticket])
     service.call
 
@@ -67,7 +66,8 @@ class App < Sinatra::Base
       @error = "INVALID_TICKET"
       status 201
     end
-  
+    
+    content_type :xml
     builder :serviceValidate
   end
 
