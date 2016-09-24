@@ -6,6 +6,7 @@ class App < Sinatra::Base
   end
 
   get "/login" do
+    service = Api::Services::Login.new
     haml :login
   end
  
