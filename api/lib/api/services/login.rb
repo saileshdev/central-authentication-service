@@ -35,7 +35,16 @@ module Api::Services
     end
   
     def valid_auth?
-       @user = User.where(email: @username, encrypted_password: Digest::SHA1.hexdigest(@password)).first
+      if ticket_granting_ticket_name.nil?
+        @user = User.where(email: @username, encrypted_password: Digest::SHA1.hexdigest(@password)).first
+      else
+        ticket = TicketGrantingTicket.where(name: @ticket_granting_ticket_name).first
+        if ticket
+          @user = ticket.user
+        else
+          return false
+        end
+      end
     end
 
     def expire_login_ticket
