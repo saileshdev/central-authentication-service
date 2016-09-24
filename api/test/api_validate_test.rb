@@ -18,4 +18,9 @@ describe App do
     last_response.status.must_equal 200
   end
 
+  it "returns an XML response" do
+    get "/p3/serviceValidate", service: service, ticket: @service_ticket
+    last_response.content_type.must_match %r{application/xml}
+  end
+
 end
